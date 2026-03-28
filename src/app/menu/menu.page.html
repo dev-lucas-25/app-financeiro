@@ -5,7 +5,11 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-button expand="block" fill='outline' (click)="abrirCadastro()">Cadastro</ion-button>
-    <ion-button expand="block"  fill='outline' (click)="abrirPagar()">Pagar</ion-button>
-    <ion-button expand="block"  fill='outline' (click)="abrirReceber()">Receber</ion-button>
+  <ion-content>
+    <ion-card>
+      <ion-button expand="block" fill='outline' (click)="abrirCadastro()">Cadastro</ion-button>
+      <ion-button expand="block"  fill='outline' (click)="abrirPagar()">Contas a Pagar</ion-button>
+      <ion-button expand="block"  fill='outline' (click)="abrirReceber()">Contas a Receber</ion-button>
+    </ion-card>
+  </ion-content>
 </ion-content>

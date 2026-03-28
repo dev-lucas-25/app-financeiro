@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-receber',
   templateUrl: './receber.page.html',
@@ -8,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReceberPage implements OnInit {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
   ngOnInit() {
   }
 
