@@ -1,13 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>menu</ion-title>
+    <ion-title>MENU</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-button expand="block" fill='outline' (click)="abrirCadastro()">Cadastro</ion-button>
+    <ion-button expand="block"  fill='outline' (click)="abrirPagar()">Pagar</ion-button>
+    <ion-button expand="block"  fill='outline' (click)="abrirReceber()">Receber</ion-button>
 </ion-content>
