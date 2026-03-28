@@ -1,13 +1,48 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>cadastro</ion-title>
+  <ion-toolbar color="success">
+    <ion-title>CADASTRO</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cadastro</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card style="background-color: transparent; padding: 10px;">
+   <ion-item>
+        <ion-input [(ngModel)]="usuario.nome" placeholder="Nome do Usuario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select [(ngModel)]="usuario.tipo" type="number" placeholder="Qual o tipo De usuario">
+          <ion-select-option value="Cliente">Cliente</ion-select-option>
+          <ion-select-option value="Funcionario">Funcionario</ion-select-option>
+        </ion-select>
+      </ion-item>
+  <ion-item>
+      <ion-input [(ngModel)]="usuario.endereco" placeholder="Endereco"></ion-input>
+  </ion-item>
+      <ion-button expand="block" fill="outline" (click)="cadastrarUsuario()">Cadastrar Usuário</ion-button>
+      <ion-button expand="block" fill="outline" color="medium" (click)="limparFormulario()">Limpar Campos</ion-button>
+  </ion-card>
+  <ion-card >
+    <ion-card-header>Usuários Cadastrados</ion-card-header>
+
+    <ion-list *ngIf="listaCadastro.length > 0; else limpaLista" >
+      <ion-item *ngFor="let item of listaCadastro; let i = index" >
+        <ion-label>
+          <h2> {{ i + 1 }}. {{ item.nome }} </h2>
+          <p>Tipo: {{ item.tipo }}</p>
+           <p>Endereco: {{ item.endereco }}</p>
+        </ion-label>
+        <ion-button fill="clear" color="danger" (click)="excluirUsuario(i)">Excluir</ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ng-template #limpaLista>
+      <ion-card-content>
+        Nenhum Usuario cadastrado!
+      </ion-card-content>
+    </ng-template>
+
+  </ion-card>
 </ion-content>
