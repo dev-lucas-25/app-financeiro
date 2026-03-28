@@ -10,22 +10,22 @@
 <ion-content [fullscreen]="true">
   <ion-card style="background-color: transparent; padding: 10px;">
    <ion-item>
-        <ion-input [(ngModel)]="usuario.nome" placeholder="Nome do Usuario"></ion-input>
+        <ion-input [(ngModel)]="cadastro.nome" placeholder="Nome ou Razão Social"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-select [(ngModel)]="usuario.tipo" type="number" placeholder="Qual o tipo De usuario">
+        <ion-select [(ngModel)]="cadastro.tipo" type="number" placeholder="Tipo">
           <ion-select-option value="Cliente">Cliente</ion-select-option>
           <ion-select-option value="Fornecedor">Fornecedor</ion-select-option>
         </ion-select>
       </ion-item>
   <ion-item>
-      <ion-input [(ngModel)]="usuario.endereco" placeholder="Endereco"></ion-input>
+      <ion-input [(ngModel)]="cadastro.endereco" placeholder="Endereco"></ion-input>
   </ion-item>
-      <ion-button expand="block" fill="outline" (click)="cadastrarUsuario()">Cadastrar Usuário</ion-button>
+      <ion-button expand="block" fill="outline" (click)="cadastrarUsuario()">Cadastrar</ion-button>
       <ion-button expand="block" fill="outline" color="medium" (click)="limparFormulario()">Limpar Campos</ion-button>
   </ion-card>
   <ion-card >
-    <ion-card-header>Usuários Cadastrados</ion-card-header>
+    <ion-card-header>Lista de Cadastros</ion-card-header>
 
     <ion-list *ngIf="listaCadastro.length > 0; else limpaLista" >
       <ion-item *ngFor="let item of listaCadastro; let i = index" >

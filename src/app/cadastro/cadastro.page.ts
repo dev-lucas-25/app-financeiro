@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-interface usuario {
+interface cadastro {
   nome: String;
   tipo: String;
   endereco: String;
@@ -13,17 +13,17 @@ interface usuario {
   standalone: false,
 })
 export class CadastroPage implements OnInit {
-  usuario = {
+  cadastro = {
     nome: '',
     tipo: '',
     endereco: '',
   };
   constructor(private router: Router) {}
-  listaCadastro: usuario[] = [];
+  listaCadastro: cadastro[] = [];
   cadastrarUsuario() {
-    const nome = this.usuario.nome.trim();
-    const tipo = this.usuario.tipo;
-    const endereco = this.usuario.endereco;
+    const nome = this.cadastro.nome.trim();
+    const tipo = this.cadastro.tipo;
+    const endereco = this.cadastro.endereco;
 
     if (!nome || !tipo || !endereco) {
       return;
@@ -33,7 +33,7 @@ export class CadastroPage implements OnInit {
     this.limparFormulario();
   }
   limparFormulario() {
-    this.usuario = {
+    this.cadastro = {
       nome: '',
       tipo: '',
       endereco: '',
