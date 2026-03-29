@@ -8,5 +8,53 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+<ion-card style="background:transparent;">
+  <ion-item>
+    <ion-label>Fornecedor:</ion-label>
+    <ion-input [(ngModel)] = "pagar.fornecedor" placeholder="Nome ou Razão Social">
+    </ion-input>
+  </ion-item>
 
+   <ion-item>
+  <ion-label>
+    Vencimento:
+  </ion-label>
+    <ion-input type="date" type="date" [(ngModel)] = "pagar.vencimento">
+    </ion-input>
+  </ion-item>
+
+   <ion-item>
+  <ion-label>
+    Pagamento:
+  </ion-label>
+    <ion-input type="date" [(ngModel)] = "pagar.pagamento"></ion-input>
+  </ion-item>
+
+    <ion-item>
+    <ion-label>Valor:</ion-label>
+    <ion-input [(ngModel)] = "pagar.valor" placeholder="Valor a Pagar R$">
+    </ion-input>
+  </ion-item>
+
+  <ion-button expand="block" fill="outline" (click)="cadastrarPagamento()">Cadastrar</ion-button>
+  <ion-button expand="block" fill="outline" color="medium" (click)="limparCampos()">Limpar Campos</ion-button>
+</ion-card>
+<ion-card>
+  <ion-card-header>Lista de Contas a Pagar Cadastradas</ion-card-header>
+  <ion-list  *ngIf="listaContasPagar.length > 0; else limpaLista"></ion-list>
+    <ion-item *ngFor="let item of listaContasPagar; let i = index" >
+         <ion-label>
+          <h2> {{ i + 1 }}. {{ item.fornecedor }} </h2>
+          <p>Data de Vencimento: {{ item.vencimento }}</p>
+           <p> Data de Pagamento: {{ item.pagamento }}</p>
+           <p>Valor: R${{ item.valor }}</p>
+        </ion-label>
+          <ion-button  fill="clear" color="danger" (click)="excluirContas(i)">Excluir</ion-button>
+    </ion-item>
+  <ng-template #limpaLista>
+      <ion-card-content>
+        Nenhuma Conta a Pagar Cadastrada !
+      </ion-card-content>
+    </ng-template>
+</ion-card>
 </ion-content>
